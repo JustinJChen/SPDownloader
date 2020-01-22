@@ -1,16 +1,15 @@
 import requests
 import json
 
-# Spotify URI for my Account
-URI = '1230626905'
-clientID = 'c1ea3c73f6c54c0296e914eacf59ff78'
-clientSecret = '9cb60e86350544efb91f44f570bcc49a'
+# URI = '1230626905'
+# clientID = 'c1ea3c73f6c54c0296e914eacf59ff78'
+# clientSecret = '9cb60e86350544efb91f44f570bcc49a'
 spotifyToken = 'Bearer BQASL7wgtkqKGrdd8Fy6VM07OKBhO4zswhhU0fgtCGis3ZqpOUwQTg4kAPfMw7RDlcIoG4GrZEZ7zny9bI_LmJ3gOvR2NBoOB--02k-K_FaOYyV5Yya0cPicdZqwz8VUdD5ElFux3ItTxca3dCVr1oUbCelWX-k'
 
 # Get the authorization token, clientID:clientSecretID need to be base64 encoded
 # Click on URL to get Authorization Token
 # Copy Auth Return token into curl command code
-# Execute curl command to get token variable
+# Execute curl command to get token variable, update spotifyToken
 # Execute script
 
 # https://accounts.spotify.com/authorize?client_id=c1ea3c73f6c54c0296e914eacf59ff78&scope=playlist-read-private&response_type=code&redirect_uri=https%3A%2F%2Fgoogle.com%2F
@@ -26,10 +25,7 @@ playlistID = None
 
 for i in playlistData['items']:
     playlistName = i['name']
-    # print ("%s, %s" % (playlistName, playlistID))
-
     if playlistName == 'SPDownloader':
-        print(playlistName + "'s ID is: " + i['id'])
         playlistID = i['id']
 
 # GET Request getting the track names from the playlist
@@ -44,7 +40,6 @@ for t in trackData['items']:
     trackName = t['track']['name']
     trackList.append(trackName)
     print(trackName) 
-    # print(trackList)
 
 # Deezer OAuth
 
@@ -55,6 +50,7 @@ for t in trackData['items']:
 # Get Access Token by replacing Code with above code: 
 # https://connect.deezer.com/oauth/access_token.php?app_id=391704&secret=64f056ae7cca43c2b1045b374b74ce71&code=fr74a75a8ac3f83966f7c35baa848af0
 
+# Update deezer token with new access token
 deezerToken = 'frlOepZxHJVpTcl1LM2TdT29rukfspfA8QEJNf6DPQsDcU3xOFM'
 finalURLs = []
 
@@ -66,13 +62,9 @@ for t in trackList:
 
 # Create a new file and copy URLs into the text file
 
-file = open("downloadList.txt", "w")
+file = open("downloadLinks.txt", "w")
 for t in finalURLs:
     file.write(t + '\n')
 file.close()
 
-
-
-
-
-
+# All the lists should now be in a downloadList.txt file in the folder
