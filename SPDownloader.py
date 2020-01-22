@@ -1,7 +1,7 @@
 import requests
 import json
 
-# URI = '1230626905'
+URI = '1230626905'
 # clientID = 'c1ea3c73f6c54c0296e914eacf59ff78'
 # clientSecret = '9cb60e86350544efb91f44f570bcc49a'
 spotifyToken = 'Bearer BQASL7wgtkqKGrdd8Fy6VM07OKBhO4zswhhU0fgtCGis3ZqpOUwQTg4kAPfMw7RDlcIoG4GrZEZ7zny9bI_LmJ3gOvR2NBoOB--02k-K_FaOYyV5Yya0cPicdZqwz8VUdD5ElFux3ItTxca3dCVr1oUbCelWX-k'
